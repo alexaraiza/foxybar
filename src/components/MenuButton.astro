@@ -1,0 +1,60 @@
+---
+---
+<button aria-expanded="false" aria-controls="menu" aria-label="Abrir menú" id="menu-button">
+  <div class="hamburger"></div>
+</button>
+<style>
+  #menu-button {
+    background: radial-gradient(#0000001f 30%, #0000 60%);
+    border: 0;
+    display: grid;
+    height: 4rem;
+    padding: 0;
+    place-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(100%);
+    width: 4rem;
+    z-index: 9;
+  }
+  .hamburger, .hamburger::before, .hamburger::after {
+    height: 0.2rem;
+    width: 2rem;
+    background-color: #fff;
+    border-radius: 9rem;
+    position: absolute;
+    transition: transform 0.3s ease, top 0.3s 0.3s ease, bottom 0.3s 0.3s ease, opacity 0s 0.3s;
+  }
+  .hamburger::before, .hamburger::after {
+    content: "";
+    display: block;
+  }
+  .hamburger::before {
+    top: -250%;
+  }
+  .hamburger::after {
+    bottom: -250%;
+  }
+  #menu-button[aria-expanded='true'] .hamburger {
+    transform: rotate(45deg);
+  }
+  #menu-button[aria-expanded='true'] .hamburger::before {
+    top: 0;
+    opacity: 0;
+  }
+  #menu-button[aria-expanded='true'] .hamburger::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+  }
+  #menu-button[aria-expanded='true'] .hamburger,
+  #menu-button[aria-expanded='true'] .hamburger::before,
+  #menu-button[aria-expanded='true'] .hamburger::after {
+    transition: transform 0.3s 0.3s ease, top 0.3s ease, bottom 0.3s ease, opacity 0s 0.3s;
+  }
+  @media screen and (min-width: 768px) {
+    #menu-button {
+      display: none;
+    }
+  }
+</style>

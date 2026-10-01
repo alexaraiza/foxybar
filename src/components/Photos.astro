@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import image1 from '../assets/img-1.jpg';
+import image5 from '../assets/img-5.jpg';
+import image6 from '../assets/img-6.jpg';
+import image7 from '../assets/img-7.jpg';
+import image10 from '../assets/img-10.jpg';
+import image11 from '../assets/img-11.jpg';
+import image15 from '../assets/img-15.jpg';
+import image17 from '../assets/img-17.jpg';
+import image19 from '../assets/img-19.jpg';
+import image21 from '../assets/img-21.jpg';
+import image22 from '../assets/img-22.jpg';
+import image23 from '../assets/img-23.jpg';
+
+---
+
+<div class="container">
+  <div class="photos">
+    <div style="min-width: 14%; width: 14%;">
+      <Image src={image1} alt="" />
+      <Image src={image17} alt="" />
+    </div>
+    <div style="min-width: 23%; width: 23%;">
+      <Image src={image6} alt="" />
+      <Image src={image7} alt="" />
+    </div>
+    <div style="min-width: 17.5%; width: 17.5%;">
+      <Image src={image15} alt="" />
+      <Image src={image10} alt="" />
+    </div>
+    <div style="min-width: 14%; width: 14%;">
+      <Image src={image19} alt="" />
+      <Image src={image5} alt="" />
+    </div>
+    <div style="min-width: 17.5%; width: 17.5%;">
+      <Image src={image11} alt="" />
+      <Image src={image21} alt="" />
+    </div>
+    <div style="min-width: 14%; width: 14%;">
+      <Image src={image22} alt="" />
+      <Image src={image23} alt="" />
+    </div>
+  </div>
+</div>
+<style>
+  .container {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .photos {
+    display: flex;
+    gap: 1rem;
+    width: 111.5rem;
+  }
+  .photos div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 40rem;
+  }
+  .photos img {
+    object-fit: cover;
+    width: 100%;
+  }
+</style>

@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import MenuButton from './MenuButton.astro';
+import Navigation from './Navigation.astro';
+import SocialLinks from './SocialLinks.astro';
+import foxyLogo from '../assets/foxy-logo.png';
+---
+
+<header>
+  <MenuButton />
+  <nav role="dialog" aria-label="Menú" id="menu">
+    <Image src={foxyLogo} alt="" />
+    <Navigation />
+    <SocialLinks />
+  </nav>
+</header>
+<style>
+  header {
+    height: 100%;
+    position: fixed;
+    transform: translateY(-100%);
+    width: 100%;
+  }
+  nav {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100%;
+    background: #000;
+    transition: transform 0.3s ease-in-out;
+  }
+  :has(#menu-button[aria-expanded='true']) nav {
+    transform: translateY(100%);
+  }
+  nav img {
+    height: auto;
+    opacity: 0.5;
+    place-self: center;
+    width: 6rem;
+  }
+  @media screen and (min-width: 768px) {
+    header {
+      height: 4rem;
+      transform: unset;
+    }
+    nav {
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      transform: unset;
+      transition: unset;
+      animation: navbar-scroll linear both;
+      animation-timeline: scroll();
+      animation-range: 0 20vh;
+    }
+    @keyframes navbar-scroll {
+      from {
+        background: transparent;
+      }
+      to {
+        background: #000;
+      }
+    }
+    :has(#menu-button[aria-expanded='true']) nav {
+      transform: unset;
+    }
+    nav img {
+      width: 4rem;
+    }
+  }
+</style>
